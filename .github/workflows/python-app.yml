@@ -38,11 +38,23 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Check current directory
+      run: pwd
+
+    - name: List files in the repository
+      run: ls -R
+
     - name: Run unit tests
-      run: python -m unittest discover -s tests
+      run: |
+        # Убедитесь, что директория tests существует и доступна
+        if [ -d "tests" ]; then
+          python -m unittest discover -s tests
+        else
+          echo "Directory 'tests' does not exist"
+          exit 1
+        fi
 
     - name: Lint the code
       run: |
         pip install flake8
         flake8 .
-
