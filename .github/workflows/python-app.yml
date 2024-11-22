@@ -5,6 +5,7 @@ on:
     branches:
       - "main"
       - "feat/tests"
+      - "release"
   pull_request:
     branches:
       - "main"
