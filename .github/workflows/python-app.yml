@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - "main"
-      - "release"
+      - "feat/tests"
   pull_request:
     branches:
       - "main"
